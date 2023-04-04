@@ -5,19 +5,17 @@ namespace PaymentMicroservice.Models
     public class PaymentDetails
     {
         [Required]
-        [RegularExpression(@"^[0-9]*$")]
-        [MinLength(12)]
-        [MaxLength(12)]
+        [RegularExpression(@"^[1-9][0-9]{11}$")]
         public string? CreditCardNumber { get; set; }
 
 
         [Required]
-        [Range(2023, 2050, ErrorMessage = "ExpiryYear Field is Required Or ExpiryYear is invalid")]
-        public int ExpiryYear { get; set; }
+        [RegularExpression(@"^[1-9][0-9]{2}$")]
+        public string? Cvv { get; set; }
 
 
         [Required]
-        [Range(100, 999, ErrorMessage = "Cvv Field is Required Or Cvv Number is invalid")]
-        public int Cvv { get; set; }
+        [RegularExpression(@"^(0[1-9]|1[0-2])\/(2[4-9]|[3-9][0-9])$")]
+        public string? ExpiryYear { get; set; }
     }
 }

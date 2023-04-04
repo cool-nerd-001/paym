@@ -14,7 +14,6 @@ namespace PaymentMicroservice.Controllers
         {
             if (!ModelState.IsValid)
             {
-                Console.WriteLine("hello");
                 return BadRequest(ModelState);
             }
             return Ok();
